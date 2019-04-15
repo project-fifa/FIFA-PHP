@@ -1,7 +1,19 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Sem40
- * Date: 15/04/2019
- * Time: 09:26
- */
+<?php require 'header.php'; ?>
+
+
+    <form action="loginController.php" method="post">
+        <input type="hidden" name="type" value="login">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <input type="submit" value="login">
+    </form>
+
+<?php require 'footer.php'; ?>
