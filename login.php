@@ -1,19 +1,15 @@
 <?php require 'header.php'; ?>
+    <div class="login-wrapper">
 
-
-    <form action="loginController.php" method="post">
-        <input type="hidden" name="type" value="login">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
+        <div class="login-div">
+            <h1>Welkom!</h1>
+            <form action="" class="login-form">
+                <input type="text" placeholder="Gebruikersnaam" name="username" id="username">
+                <input type="text" placeholder="Wachtwoord" name="password" id="password">
+                <input type="submit" value="Login" id="login-button" >
+            </form>
+            <p>Nog geen account? <a href="register.php">Klik Hier!</a></p>
         </div>
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        </div>
-
-        <input type="submit" value="login">
-    </form>
-
+    </div>
 <?php require 'footer.php'; ?>
