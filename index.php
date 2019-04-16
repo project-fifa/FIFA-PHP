@@ -7,13 +7,8 @@
  */
 
 require 'header.php';
-if($_SESSION == false)
-{
+if($_SESSION == false) {
     header('location: login.php');
-}
-else if($_SESSION == true)
-{
-    header('location: index.php');
 }
 ?>
 
