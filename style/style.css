@@ -7,7 +7,7 @@ body {  }
 .homepage-wrapper{
 	width: 100vw;
 	height: 100vh;
-	background-image: url(./images/SoccerfieldStadium.jpg);
+	background-image: url(images/SoccerfieldStadium.jpg);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -183,4 +183,83 @@ body {  }
 	color: #B9B9B9;
 }
 
+/* ----::::||====|| Register Page ||====||::::---- */
 
+.register-wrapper
+{
+	width: 100vw;
+	height: 100vh;
+	background-image: url(images/SoccerfieldStadium.jpg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.register-div
+{
+	background: #2A2A2A;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 40px 20px 40px;
+}
+.register-div h1
+{
+	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+	font-family: passion one;
+	font-weight: lighter;
+	color: #FFF;
+	letter-spacing: 5%;
+	font-size: 3.5em;
+	margin-bottom: 15px;
+}
+.register-div p
+{
+	font-family: righteous;
+	font-weight: lighter;
+	font-size: 0.8em;
+	color: #D1D1D1;
+}
+.register-div a
+{
+	color: #0094FF;
+}
+.register-div form
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.register-div form input
+{
+	background: #545454;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 10px;
+	width: 250px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-family: righteous;
+	box-shadow: inset 3px 3px 7px rgba(29, 29, 29, 0.30);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	border: 0.5px solid #696969;
+}
+.register-div form input:focus{border: none;}
+.register-div form input::placeholder{color: #B9B9B9;}
+
+#register-button
+{
+	margin: 15px 0px 25px 0px;
+	padding: 5px 10px;
+	width: 120px;
+	border-radius: 0px;
+	background: #545454;
+	border: 3px solid #696969;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+	color: #B9B9B9;
+}

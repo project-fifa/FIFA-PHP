@@ -7,27 +7,21 @@
  */
 require 'header.php';
 ?>
-<form action="loginController.php" method="post">
-    <input type="hidden" name="type" value="register">
-    <div class="form-group">
-        <label for="username">gebruikersnaam</label>
-        <input type="text" name="username" id="username">
+<div class="register-wrapper">
+
+    <div class="register-div">
+        <h1>Maak uw Account!</h1>
+        <form action="loginController.php" method="post">
+            <input type="hidden" name="type" value="register">
+            <input type="text" placeholder="Voornaam" name="firstname" id="firstname">
+            <input type="text" placeholder="Achternaam" name="lastname" id="lastname">
+            <input type="text" placeholder="Gebruikersnaam" name="username" id="username">
+            <input type="text" placeholder="Email" name="email" id="email">
+            <input type="password" placeholder="Wachtwoord" name="password" id="password">
+            <input type="password" placeholder="Wachtwoord Herhalen" name="passwordConfirm" id="passwordConfirm">
+            <input type="submit" name="submit"id="register-button" value="Klaar!">
+        </form>
+        <p>Al een account? <a href="login.php">Klik Hier!</a></p>
     </div>
 
-    <div class="form-group">
-        <label for="email">email</label>
-        <input type="text" name="email" id="email">
-    </div>
-
-    <div class="form-group">
-        <label for="password">wachtwoord</label>
-        <input type="password" name="password" id="password">
-    </div>
-
-    <div class="form-group">
-        <label for="password_confirm">Bevestig Wachtwoord</label>
-        <input type="password" name="password_confirm" id="password_confirm">
-    </div>
-    <input type="submit" name="submit" value="submit" />
-    <p>Al een account?<a href="login.php">Login</a></p>
-</form>
+</div>

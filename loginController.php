@@ -45,10 +45,12 @@ if ( $_POST['type'] === 'login' ) {
 
 if ($_POST['type'] === 'register') {
 
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $wachtwoord = $_POST['password'];
-    $wachtwoord_confirm = $_POST['password_confirm'];
+    $password = $_POST['password'];
+    $passwordConfirm= $_POST['passwordConfirm'];
 
     try {
         $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
@@ -99,22 +101,22 @@ if ($_POST['type'] === 'register') {
 
     }
 
-    if (trim($_POST['password']) == '' || trim($_POST['password_confirm']) == '') {
+    if (trim($_POST['password']) == '' || trim($_POST['passwordConfirm']) == '') {
         echo('All fields are required!');
-    } else if ($_POST['password'] != $_POST['password_confirm']) {
+    } else if ($_POST['password'] != $_POST['passwordConfirm']) {
         echo('Passwords do not match!');
-    } else if ($_POST['password'] == $_POST['password_confirm']) {
+    } else if ($_POST['password'] == $_POST['passwordConfirm']) {
         $errors = array();
-        if (strlen($wachtwoord) < 7 || strlen($wachtwoord) > 16) {
+        if (strlen($password) < 7 || strlen($password) > 16) {
             $errors[] = "Password should be min 7 characters and max 16 characters";
         }
-        if (!preg_match("/\d/", $wachtwoord)) {
+        if (!preg_match("/\d/", $password)) {
             $errors[] = "Password should contain at least one digit";
         }
-        if (!preg_match("/[A-Z]/", $wachtwoord)) {
+        if (!preg_match("/[A-Z]/", $password)) {
             $errors[] = "Password should contain at least one Capital Letter";
         }
-        if (!preg_match("/[a-z]/", $wachtwoord)) {
+        if (!preg_match("/[a-z]/", $password)) {
             $errors[] = "Password should contain at least one small Letter";
         }
 
@@ -126,15 +128,17 @@ if ($_POST['type'] === 'register') {
         } else {
             header('location: login.php');
         }
-        $passwordHash = password_hash($wachtwoord, PASSWORD_BCRYPT, array("cost" => 12));
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
 
-        $sql = "INSERT INTO users (username, email, password) 
-                     VALUES (:username, :email, :password)";
+        $sql = "INSERT INTO users (firstname, lastname, username, email, password) 
+                     VALUES (:firstname, :lastname, :username, :email, :password)";
         $prepare = $db->prepare($sql);
         $prepare->execute([
-            ':email' => $email,
-            ':username' => $username,
-            ':password' => $passwordHash
+            ':firstname'     => $firstname,
+            ':lastname'      => $lastname,
+            ':email'         => $email,
+            ':username'      => $username,
+            ':password'      => $passwordHash
         ]);
     }
 }
