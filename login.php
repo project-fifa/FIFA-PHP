@@ -4,9 +4,9 @@
         <div class="login-div">
             <h1>Welkom!</h1>
             <form action="loginController.php" class="login-form" method="post">
-                <input type="hidden" name="type" value="login0">
+                <input type="hidden" name="type" value="login">
                 <input type="text" placeholder="Gebruikersnaam" name="username" id="username">
-                <input type="text" placeholder="Wachtwoord" name="password" id="password">
+                <input type="password" placeholder="Wachtwoord" name="password" id="password">
                 <input type="submit" value="Login" id="login-button" >
             </form>
             <p>Wachtwoord vergeten? <a href="forget.php">Klik Hier!</a></p>
