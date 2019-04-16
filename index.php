@@ -5,7 +5,17 @@
  * Date: 15/04/2019
  * Time: 09:39
  */
-require 'header.php';?>
+
+require 'header.php';
+if($_SESSION == false)
+{
+    header('location: login.php');
+}
+else if($_SESSION == true)
+{
+    header('location: index.php');
+}
+?>
 
 <div class="homepage-wrapper">
     <div class="app-download">

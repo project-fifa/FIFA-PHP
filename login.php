@@ -9,6 +9,7 @@
                 <input type="text" placeholder="Wachtwoord" name="password" id="password">
                 <input type="submit" value="Login" id="login-button" >
             </form>
+            <p>Wachtwoord vergeten? <a href="forget.php">Klik Hier!</a></p>
             <p>Nog geen account? <a href="register.php">Klik Hier!</a></p>
         </div>
 
