@@ -13,6 +13,7 @@ require 'header.php';?>
         <img src="https://via.placeholder.com/550x350" alt="">
         <p>Wed op je favoriete team en word rijk!</p>
         <button>Download</button>
+
     </div>
     <div class="new-team">
         <h1>Speel mee met je eigen Team!</h1>
