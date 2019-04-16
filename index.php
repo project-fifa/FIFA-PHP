@@ -12,7 +12,15 @@ require 'header.php';?>
         <h1>Download de App!</h1>
         <img src="https://via.placeholder.com/550x350" alt="">
         <p>Wed op je favoriete team en word rijk!</p>
-        <button>Download</button>
+        <?php
+        if ($_SESSION == true){
+            ?><button>Download</button><?php
+        }
+        else {
+            ?><a href="login.php"><p>Login om te downloaden!</p></a><?php
+        }
+        ?>
+
 
     </div>
     <div class="new-team">
