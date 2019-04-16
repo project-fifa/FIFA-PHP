@@ -263,3 +263,169 @@ body {  }
 	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
 	color: #B9B9B9;
 }
+
+/* ----::::||====|| Add Team Page ||====||::::---- */
+
+.addteam-wrapper
+{
+	width: 100vw;
+	height: 100vh;
+	background-image: url(images/SoccerfieldStadium.jpg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.addteam-div
+{
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: auto;
+	background: #2A2A2A;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+	border-radius: 15px;
+	padding: 10px;
+}
+.addteam-div h2
+{
+	font-family: passion one;
+	font-weight: lighter;
+	letter-spacing: 0.05em;
+	color: rgba(255, 255, 255, 0.6);
+	letter-spacing: 0.05em;
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 2em;
+	padding: 10px 25px;
+}
+.addteam-div h3
+{
+	font-family: passion one;
+	font-weight: lighter;
+	letter-spacing: 0.05em;
+	color: rgba(255, 255, 255, 0.9);
+	text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+.addteam-div div
+{
+	display: flex;
+	flex-direction: column;
+}
+.addteam-div input
+{
+	background: #4E4E4E;
+	border: 2.5px solid #696969;
+	box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+	width: 300px;
+	height: 40px;
+	font-size: 2em;
+	padding: 5px;
+}
+.addteam-div label
+{
+	font-family: righteous;
+	font-weight: lighter;
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	margin-bottom: 5px;
+}
+#addPlayer-button
+{
+	background: #4E4E4E;
+	border: 2.5px solid #696969;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+	font-family: righteous;
+	font-size: 1.5em;
+	width: 100px;
+	height: 30px;
+	color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: flex-end;
+	margin-top: 10px;
+}
+.team-name
+{
+	grid-area: 1/1/2/2;
+	border: 1.5px solid #696969;
+	box-sizing: border-box;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 10px;
+}
+.new-player
+{
+	grid-area: 2/1/3/2;
+	border: 1.5px solid #696969;
+	box-sizing: border-box;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 10px;
+}
+#firstName
+{
+	margin-bottom: 10px;
+}
+
+/* --::|| Team Display Div ||::-- */
+
+.team-display
+{
+	grid-area: 1/2/3/3;
+	background: #555555;
+	border: 4px solid #696969;
+	box-sizing: border-box;
+	box-shadow: inset 4px 4px 25px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+}
+
+.players-display
+{
+	background: #555555;
+	border: 5px solid #696969;
+	box-sizing: border-box;
+	box-shadow: inset 4px 4px 25px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	border-bottom: 2.5px;
+	width: 400px;
+	height: 90%;
+}
+
+.players-display ul
+{
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.players-display ul:first-child
+{
+	margin-top: -2.5px;
+}
+.players-display li
+{
+	background: #4E4E4E;
+	border: 2.5px solid #696969;
+	box-sizing: border-box;
+	box-shadow: inset 4px 4px 25px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	height: 55px;
+	width: 95%;
+	text-align: center;
+	padding: 10px;
+	padding-top: 13px;
+	font-family: righteous;
+	letter-spacing: 0.05em;
+	color: rgba(255, 255, 255, 0.6);
+}
