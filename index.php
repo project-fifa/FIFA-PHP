@@ -6,6 +6,4 @@
  * Time: 09:39
  */
 require 'header.php';
-if($_SESSION == true) {
-    echo "<p>je blijft ingelogt!!</p>";
-}
+
