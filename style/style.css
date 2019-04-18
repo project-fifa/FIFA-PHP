@@ -535,3 +535,85 @@ body {  }
 	margin-top: 10px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
+/* ----::::||====|| Reset Password Page ||====||::::---- */
+
+.reset-wrapper
+{
+	width: 100vw;
+	height: 100vh;
+	background-image: url(images/SoccerfieldStadium.jpg);
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.reset-div
+{
+	background: #2A2A2A;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 40px 20px 40px;
+}
+
+.reset-div h1
+{
+	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+	font-family: passion one;
+	font-weight: lighter;
+	color: #FFF;
+	letter-spacing: 5%;
+	font-size: 3em;
+	margin-bottom: 15px;
+}
+
+.reset-form
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.reset-form input
+{
+	background: #545454;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	width: 250px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-family: righteous;
+	box-shadow: inset 3px 3px 7px rgba(29, 29, 29, 0.30);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	border: 0.5px solid #696969;
+	color: rgba(255, 255, 255, 1);
+	font-size: 1.3em;
+}
+
+.reset-form input::placeholder
+{
+	color: #B9B9B9;
+}
+
+#resetButton
+{
+	background: #2A2A2A;
+	border: 5px solid #4E4E4E;
+	box-sizing: border-box;
+	box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+	font-family: righteous;
+	font-size: 1.3em;
+	color: rgba(255, 255, 255, 0.8);
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+	width: 150px;
+}
