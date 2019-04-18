@@ -13,15 +13,21 @@ if($_SESSION == false) {
 ?>
 
 <div class="homepage-wrapper">
-    <div class="app-download">
-        <h1>Download de App!</h1>
-        <img src="https://via.placeholder.com/550x350" alt="">
-        <p>Wed op je favoriete team en word rijk!</p>
-        <a href="login.php"><p>Login om te downloaden!</p></a>
+    <div class="homepage-header">
+        <button><a href="logout.php"><i class="fas fa-sign-out-alt"></i></a></button>
     </div>
-    <div class="new-team">
-        <h1>Speel mee met je eigen Team!</h1>
-        <p>Schrijf jezelf en je teamgenoten in voor die spanningwekkend voetbaltoernooi en word samen met je team kampioen van het Radius College!</p>
-        <a href="addTeam.php">Nieuw Team</a>
+    <div class="homepage-content">
+        <div class="app-download">
+            <h1>Download de App!</h1>
+            <img src="https://via.placeholder.com/550x350" alt="">
+            <p>Wed op je favoriete team en word rijk!</p>
+            <button>Download</button>
+        </div>
+        <div class="new-team">
+            <h1>Speel mee met je eigen Team!</h1>
+            <p>Schrijf jezelf en je teamgenoten in voor dit spanningwekkend voetbaltoernooi en word samen met je team kampioen van het Radius College!</p>
+            <a href="addTeam.html">Nieuw Team</a>
+        </div>
     </div>
 </div>
+<?php require 'footer.php';?>
