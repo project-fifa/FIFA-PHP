@@ -31,6 +31,6 @@ if($_SESSION == false) {
     <div class="new-team">
         <h1>Speel mee met je eigen Team!</h1>
         <p>Schrijf jezelf en je teamgenoten in voor die spanningwekkend voetbaltoernooi en word samen met je team kampioen van het Radius College!</p>
-        <a href="addTeam.html">Nieuw Team</a>
+        <a href="addTeam.php">Nieuw Team</a>
     </div>
 </div>
