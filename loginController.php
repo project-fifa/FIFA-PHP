@@ -142,6 +142,8 @@ if ($_POST['type'] === 'register') {
         ]);
     }
 }
+
+if (isset($_POST['reset']))
 exit;
 
 

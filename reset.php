@@ -6,6 +6,7 @@ require 'header.php';
 
     <h1>Wachtwoord Herstellen</h1>
     <form action="" class="reset-form">
+        <input type="hidden" name="type" value="reset">
         <input type="text" id="username-reset" placeholder="Gebruikersnaam">
         <input type="text" id="email-reset" placeholder="E-mail">
         <input type="text" id="password-reset" placeholder="Nieuwe Wachtwoord">
