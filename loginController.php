@@ -131,7 +131,7 @@ if ($_POST['type'] === 'register') {
         $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
 
         $sql = "INSERT INTO users (firstname, lastname, username, email, password) 
-                     VALUES (:firstname, :lastname, :username, :email, :password)";
+                       VALUES (:firstname, :lastname, :username, :email, :password)";
         $prepare = $db->prepare($sql);
         $prepare->execute([
             ':firstname'     => $firstname,
@@ -146,19 +146,12 @@ if ($_POST['type'] === 'register') {
 if ($_POST['type'] == 'reset') {
 
     $id = $_GET['id'];
-    $sql = "UPDATE users SET
-        resetpassword = :resetpassword
-        WHERE id = :id";
+    $sql = "UPDATE users SET resetpassword = :resetpassword WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':resetpassword' =>$_POST['password'],
-        ':id' => $_POST['id']
+        ':id'            => $_POST['id']
     ]);
 
 }
 exit;
-
-
-
-
-
