@@ -12,7 +12,7 @@ if ( $_POST['type'] === 'login' ) {
     $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
-    $sql = "SELECT id, username, password FROM users  WHERE username, email = :username , :email";
+    $sql = "SELECT id, username, password FROM users  WHERE username = :username";
     $stmt = $db->prepare($sql);
 
     $stmt->bindValue(':username', $username);
