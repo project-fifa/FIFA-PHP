@@ -147,12 +147,17 @@ if ($_POST['type'] === 'register') {
 if ($_POST['type'] == 'reset') {
 
     $id = $_GET['id'];
-    $sql = "UPDATE users SET resetpassword = :resetpassword WHERE id = :id";
+    $sql = "SELECT email FROM users WHERE email = ? ";
+    header('location: resetpassword.php');
+
+}
+if ($_POST['type'] == 'resetpassword'){
+
+    $sql = "UPDATE users SET resetpassword = :resetpassword WHERE id = ?";
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':resetpassword' => $_POST['password'],
-        ':id'            => $_POST['id']
+        ':resetpassword' =>$_POST['password']
     ]);
-
+    
 }
 exit;
