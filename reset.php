@@ -9,8 +9,8 @@ require 'header.php';
         <input type="hidden" name="type" value="reset">
         <input type="text" id="username-reset" placeholder="Gebruikersnaam">
         <input type="text" id="email-reset" placeholder="E-mail">
-        <input type="text" id="password-reset" placeholder="Nieuwe Wachtwoord">
-        <input type="text" id="confirm-reset" placeholder="Herhaal Wachtwoord">
+        <input type="password" id="password-reset" placeholder="Nieuwe Wachtwoord">
+        <input type="password" id="confirm-reset" placeholder="Herhaal Wachtwoord">
         <input type="submit" value="Klaar!" id="resetButton">
     </form>
 </div>
