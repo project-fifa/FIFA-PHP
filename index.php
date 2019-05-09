@@ -26,7 +26,7 @@ if($_SESSION == false) {
         <div class="new-team">
             <h1>Speel mee met je eigen Team!</h1>
             <p>Schrijf jezelf en je teamgenoten in voor dit spanningwekkend voetbaltoernooi en word samen met je team kampioen van het Radius College!</p>
-            <a href="addTeam.php">Nieuw Team</a>
+            <a href="addTeam.php?id=<?=$_SESSION['id'];?>">Nieuw Team</a>
         </div>
     </div>
 </div>

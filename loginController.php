@@ -9,9 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' ) {
 if ( $_POST['type'] === 'login' ) {
 
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
-    $sql = "SELECT id, username, password FROM users  WHERE username = :username";
+    $sql = "SELECT id, username, password FROM users  WHERE username, email = :username , :email";
     $stmt = $db->prepare($sql);
 
     $stmt->bindValue(':username', $username);
@@ -149,7 +150,7 @@ if ($_POST['type'] == 'reset') {
     $sql = "UPDATE users SET resetpassword = :resetpassword WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':resetpassword' =>$_POST['password'],
+        ':resetpassword' => $_POST['password'],
         ':id'            => $_POST['id']
     ]);
 
