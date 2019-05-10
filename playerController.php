@@ -25,7 +25,7 @@ if ($_POST['type'] === 'addTeam') {
 }
 
 if ($_POST['type'] === 'addPlayer') {
-    $name = $_POST['fullName'];
+    $name = $_POST['name'];
     $id = $_GET['id'];
     $sql = "INSERT INTO player (fullName, teamId)
             VALUES(:fullName, :teamId)";
@@ -34,7 +34,7 @@ if ($_POST['type'] === 'addPlayer') {
        ':fullName'  => $name,
        ':teamId'    => $id
     ]);
-    header('location::');
+    header('location: addplayer.php?id=' . $id);
 }
 ?>
 

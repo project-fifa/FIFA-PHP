@@ -1,19 +1,22 @@
 <?php
 require 'header.php';
-$PlayerSql = "SELECT fullName FROM player";
+$PlayerSql = "SELECT fullName FROM player ";
 $query = $db->query($PlayerSql);
-$names = $query->fetch(PDO::FETCH_ASSOC);
+$names = $query->fetchAll(PDO::CASE_LOWER);
 
 $id = $_GET['id'];
 ?>
 <div class="addteam-wrapper">
+    <div class="homepage-header">
+        <button><a href="index.php"><i class="fas fa-home"></i></a></button>
+    </div>
     <form action="playerController.php?id=<?=$id?>" method="post">
     <input type="hidden" name="type" value="addPlayer">
     <div class="addteam-div">
         <div class="new-player">
             <h3>Speler Toevoegen</h3>
             <label for="name">Volledige Naam:</label>
-            <input type="text" id="name" name="Name">
+            <input type="text" id="name" name="name">
             <input type="submit" id="addPlayer-button" value=">">
 
         </div>
@@ -25,7 +28,8 @@ $id = $_GET['id'];
                     <?php
                     foreach ($names as $name)
                     {
-                        echo "<li>$name</li>";
+
+                        echo "<li> {$name['fullName']} </li>";
                     }
                     ?>
                 </ul>
