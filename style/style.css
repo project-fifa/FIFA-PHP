@@ -586,7 +586,7 @@ body {  }
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
-	width: 250px;
+	width: 275px;
 	margin-bottom: 15px;
 	text-align: center;
 	font-family: righteous;
@@ -615,5 +615,5 @@ body {  }
 	justify-content: center;
 	margin-top: 10px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-	width: 150px;
+	width: 175px;
 }
