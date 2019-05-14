@@ -120,6 +120,7 @@ body {  }
 	text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
 	width: 85%;
 }
+
 .new-team p{
 	color: rgba(255, 255, 255, 0.6);
 	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
@@ -130,6 +131,50 @@ body {  }
 	width: 95%;
 }
 .new-team a{
+	font-family: righteous;
+	font-size: 2em;
+	color: white;
+	background: #545454;
+	border: 5px solid #696969;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+	padding: 10px 0px;
+	text-decoration: none;
+	width: 300px;
+	text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* --::|| games and teams div ||::-- */
+
+.games-teams-div{
+	display: flex;
+	flex-direction: column;
+}
+.games-teams-div h1{
+	font-family: passion one;
+	font-weight: lighter;
+	font-size: 3.5em;
+	color: #FFF;
+	text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+	width: 85%;
+}
+.games-teams-div img {
+
+	height: 275px;
+	width: 500px;
+	margin: 20px 0px;
+}
+
+.games-teams-div p{
+	color: rgba(255, 255, 255, 0.6);
+	text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25);
+	font-size: 2.0em;
+	font-family: righteous;
+	font-weight: lighter;
+	margin: 55px 0px;
+	width: 95%;
+}
+.games-teams-div a{
 	font-family: righteous;
 	font-size: 2em;
 	color: white;
