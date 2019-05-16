@@ -1,34 +1,42 @@
 <?php
 require 'header.php';
 
-if($_SESSION == false) {
-    header('location: login.php');
+$sql = "SELECT teamName FROM teams";
+$query = $db->query($sql);
+$names = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$num_team = sizeof($names);
+$num_week = 3;
+
+if ($num_team % 2 !=0) {
+    $num_team++;
 }
 
-$sql = $db->prepare("SELECT teamName FROM teams");
-$sql->execute();
+$n2 = ($num_team-1)/2;
 
-$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+for($x = 0; $x < $num_team; $x++) {
+    $teams[$x] = $x+1;
+}
 
-$team = array($result);
 
-function scheduler($teams){
-    if (count($teams)%2 != 0){
-        array_push($teams,"Teams");
+
+for ($x = 0; $x < $num_week; $x++) {
+    for ($i = 0; $i < $n2; $i++){
+        $team1 = $teams[$n2 - $i];
+        $team2 = $teams[$n2 + $i + 1];
+        $results[$team1][$x] = $team2;
+        $results[$team2][$x] = $team1;
+        $Team1 = $names[$results[$team1][$x] -1]['teamName'];
+        $Team2 = $names[$results[$team2][$x] -1]['teamName'];
+        echo $Team1 . " vs " . $Team2 . "<br>";
     }
-    $uit = array_splice($teams,(count($teams)/2));
-    $thuis = $teams;
-    for ($i=0; $i < count($thuis)+count($uit)-1; $i++){
-        for ($j=0; $j<count($thuis); $j++){
-            $round[$i][$j]["teamName"]=$thuis[$j];
-            $round[$i][$j]["teamName"]=$uit[$j];
-        }
-        if(count($thuis)+count($uit)-1 > 2){
-            array_unshift($uit,array_shift(array_splice($thuis,1,1)));
-            array_push($thuis,array_pop($uit));
-        }
+    echo "<br>";
+    $tmp = $teams[1];
+    for ($i = 1; $i < sizeof($teams) -1; $i++)
+    {
+        $teams[$i] = $teams[$i+1];
     }
-    return $round;
+    $teams[sizeof($teams)-1] = $tmp;
 }
 
 ?>
@@ -38,14 +46,14 @@ function scheduler($teams){
     <div class="players-display">
         <ul>
             <?php
-            $schedule = scheduler($team);
-            foreach ($schedule AS $round => $games){
-                echo "Ronde " . ($round+1) . "<br>";
-                foreach ($games AS $play){
-                    echo $play["teamName"] . " - " . $play["teamName"]."<br>";
-                }
+                echo $Team1 . " vs " . $Team2 . "<br>";
                 echo "<br>";
-            }
+                $tmp = $teams[1];
+                 for ($i = 1; $i < sizeof($teams) -1; $i++)
+                {
+                    $teams[$i] = $teams[$i+1];
+                }
+                $teams[sizeof($teams)-1] = $tmp;
             ?>
         </ul>
     </div>
