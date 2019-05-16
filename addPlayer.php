@@ -1,5 +1,10 @@
 <?php
 require 'header.php';
+
+if($_SESSION == false) {
+    header('location: login.php');
+}
+
 $PlayerSql = "SELECT fullName FROM player ";
 $query = $db->query($PlayerSql);
 $names = $query->fetchAll(PDO::FETCH_ASSOC);

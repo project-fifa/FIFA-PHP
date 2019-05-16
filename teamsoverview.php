@@ -1,5 +1,10 @@
 <?php
 require 'header.php';
+
+if($_SESSION == false) {
+    header('location: login.php');
+}
+
 $TeamSql = "SELECT TeamName, id FROM teams";
 $query = $db->query($TeamSql);
 $teams = $query->fetchAll(PDO:: FETCH_ASSOC);

@@ -1,6 +1,10 @@
 <?php
 require 'header.php';
 
+if($_SESSION == false) {
+    header('location: login.php');
+}
+
 $sql = $db->prepare("SELECT teamName FROM teams");
 $sql->execute();
 

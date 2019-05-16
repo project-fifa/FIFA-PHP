@@ -1,4 +1,9 @@
 <?php require 'header.php';
+
+if($_SESSION == false) {
+    header('location: login.php');
+}
+
 $id =($_GET['id']);
 $sql = "SELECT * FROM users WHERE id = :id";
 ?>

@@ -1,5 +1,10 @@
 <?php
 require 'header.php';
+
+if($_SESSION == false) {
+    header('location: login.php');
+}
+
 $teamId =($_GET['id']);
 $PlayerSql = "SELECT FullName FROM player WHERE teamId = :teamId ";
 $prepare =$db->prepare($PlayerSql);
