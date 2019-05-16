@@ -2,7 +2,7 @@
 require 'header.php';
 $PlayerSql = "SELECT fullName FROM player ";
 $query = $db->query($PlayerSql);
-$names = $query->fetchAll(PDO::CASE_LOWER);
+$names = $query->fetchAll(PDO::FETCH_ASSOC);
 
 $id = $_GET['id'];
 ?>

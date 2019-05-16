@@ -1,32 +1,48 @@
 <?php
 require 'header.php';
 
-$num_team = 4;
-$num_week = 1;
+$sql = $db->prepare("SELECT teamName FROM teams");
+$sql->execute();
 
-$n2 = ($num_team-1)/2;
+$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-for($x = 0; $x < $num_team; $x++) {
-    $teams[$x] = $x+1;
-}
+$team = array($result);
 
-for ($x = 0; $x < $num_week; $x++) {
-    for ($i = 0; $i < $n2; $i++){
-        $team1 = $teams[$n2 - $i];
-        $team2 = $teams[$n2 + $i + 1];
-        $results[$team1][$x] = $team2;
-        $results[$team2][$x] = $team1;
-        echo $results[$team1][$x] . " vs " . $results[$team2][$x] . "<br>";
-
+function scheduler($teams){
+    if (count($teams)%2 != 0){
+        array_push($teams,"Teams");
     }
+    $uit = array_splice($teams,(count($teams)/2));
+    $thuis = $teams;
+    for ($i=0; $i < count($thuis)+count($uit)-1; $i++){
+        for ($j=0; $j<count($thuis); $j++){
+            $round[$i][$j]["teamName"]=$thuis[$j];
+            $round[$i][$j]["teamName"]=$uit[$j];
+        }
+        if(count($thuis)+count($uit)-1 > 2){
+            array_unshift($uit,array_shift(array_splice($thuis,1,1)));
+            array_push($thuis,array_pop($uit));
+        }
+    }
+    return $round;
 }
+
 ?>
 <div class="addteam-wrapper">
     <div class="team-display">
     <h2>Wedstrijd Schema </h2>
     <div class="players-display">
         <ul>
-            <li></li>
+            <?php
+            $schedule = scheduler($team);
+            foreach ($schedule AS $round => $games){
+                echo "Ronde " . ($round+1) . "<br>";
+                foreach ($games AS $play){
+                    echo $play["teamName"] . " - " . $play["teamName"]."<br>";
+                }
+                echo "<br>";
+            }
+            ?>
         </ul>
     </div>
 </div>
