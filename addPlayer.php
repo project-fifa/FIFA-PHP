@@ -4,12 +4,15 @@ require 'header.php';
 if($_SESSION == false) {
     header('location: login.php');
 }
-
-$PlayerSql = "SELECT fullName FROM player ";
-$query = $db->query($PlayerSql);
-$names = $query->fetchAll(PDO::FETCH_ASSOC);
-
 $id = $_GET['id'];
+$PlayerSql = "SELECT FullName FROM player WHERE teamId = :teamId ";
+$prepare =$db->prepare($PlayerSql);
+$prepare->execute([
+    ':teamId' => $id
+]);
+$names = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 <div class="addteam-wrapper">
     <div class="homepage-header">
