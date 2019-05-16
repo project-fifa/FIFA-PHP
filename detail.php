@@ -17,7 +17,7 @@ require 'header.php'; ?>
             <h1>Zie alle teams</h1>
             <img src="style/images/soccerteam.jpeg" alt="soccer team">
             <p>zie alle teams die meedoen aan het toernooi!</p>
-            <a href="teamsoverwiew.php">Teams</a>
+            <a href="teamsoverview.php">Teams</a>
         </div>
         <div class="games-teams-div">
             <h1>zie alle wedstrijden</h1>
