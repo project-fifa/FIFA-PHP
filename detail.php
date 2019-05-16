@@ -6,9 +6,6 @@
  * Time: 09:40
  */
 
-if($_SESSION == false) {
-    header('location: login.php');
-}
 require 'header.php'; ?>
 
 <div class="homepage-wrapper">
