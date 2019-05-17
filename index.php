@@ -10,11 +10,21 @@ require 'header.php';
 if($_SESSION == false) {
     header('location: login.php');
 }
+
+$admincheck = $db->prepare("SELECT level FROM users WHERE level = 1");
+$admincheck->execute();
+$admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <div class="homepage-wrapper">
     <div class="homepage-header">
         <button><a href="logout.php"><i class="fas fa-sign-out-alt"></i></a></button>
+        <?php
+         if($admin == true){
+            echo "<button><a href='gameSchedule.php'>Wedstrijd aanmaken</a></button>";
+         }
+        ?>
     </div>
     <div class="homepage-content">
         <div class="app-download">

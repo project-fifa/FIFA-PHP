@@ -779,3 +779,26 @@ body {  }
 	letter-spacing: 0.05em;
 	color: rgba(255, 255, 255, 0.6);
 }
+.schedule-display
+{
+	background: #555555;
+	border: 5px solid #696969;
+	box-sizing: border-box;
+	box-shadow: inset 4px 4px 25px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	border-bottom: 2.5px;
+	width: 400px;
+	height: 90%;
+}
+.schedule-display p
+{
+	color: white;
+}
+
+.schedule-display ul
+{
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
