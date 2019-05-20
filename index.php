@@ -28,9 +28,10 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="homepage-content">
         <div class="app-download">
-            <h1>Download de App!</h1>
-            <img src="https://via.placeholder.com/550x350" alt="">
-            <p>Wed op je favoriete team en word rijk!</p>
+            <h1>Info!</h1>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi debitis delectus ipsa nulla possimus suscipit unde voluptates! Assumenda atque beatae corporis eius exercitationem facere mollitia omnis optio quae tempora, velit?
+            </p>
             <button>Download</button>
         </div>
         <div class="new-team">
