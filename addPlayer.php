@@ -5,7 +5,7 @@ if($_SESSION == false) {
     header('location: login.php');
 }
 $id = $_GET['id'];
-$PlayerSql = "SELECT FullName FROM player WHERE teamId = :teamId ";
+$PlayerSql = "SELECT fullName FROM player WHERE teamId = :teamId ";
 $prepare =$db->prepare($PlayerSql);
 $prepare->execute([
     ':teamId' => $id
