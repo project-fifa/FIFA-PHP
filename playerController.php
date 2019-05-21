@@ -36,5 +36,16 @@ if ($_POST['type'] === 'addPlayer') {
     ]);
     header('location: addplayer.php?id=' . $id);
 }
+/*
+if ($_POST['type'] === 'addmatch')
+{
+    $matchup = $_POST['matchup'];
+    $sql = "INSERT INTO games (matchup)
+            VALUES(:matchup)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':matchup'      => $matchup,
+    ]);
+} */
 ?>
 
