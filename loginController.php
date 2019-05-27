@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' ) {
 if ( $_POST['type'] === 'login' ) {
 
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-    $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
     $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
     $sql = "SELECT id, username, password FROM users  WHERE username = :username";
@@ -159,5 +158,16 @@ if ($_POST['type'] == 'resetpassword'){
         ':resetpassword' =>$_POST['password']
     ]);
     
+}
+
+if ($_POST['type'] === 'delete') {
+
+    $id = $_GET['id'];
+    $sql = "DELETE FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+       ':id' => $id
+    ]);
+    header('location: detail.php');
 }
 exit;
