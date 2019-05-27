@@ -12,6 +12,14 @@ $prepare->execute([
     ':teamId' => $teamId
 ]);
 $players = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+$admincheck = $db->prepare("SELECT level FROM users WHERE level = 1");
+$admincheck->execute();
+$admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
+
+$TeamSql = "SELECT id FROM teams ";
+$query = $db->query($TeamSql);
+$teams = $query->fetchAll(PDO:: FETCH_ASSOC);
 ?>
 
 <div class="overview-wrapper">
@@ -27,6 +35,14 @@ $players = $prepare->fetchAll(PDO::FETCH_ASSOC);
                 {
 
                     echo "<li> {$player ['FullName']}</li>";
+                }
+                if ($admin == true)
+                {
+                    ?>
+                     <form action='loginController.php?id=<?=$teamId;?>' method="post">
+                     <input type='hidden' name='type' value='delete'>
+                    <input type='submit' value='Delete Button' id='delete-Button'>
+                    <?php
                 }
                 ?>
             </ul>

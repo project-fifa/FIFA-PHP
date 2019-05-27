@@ -23,6 +23,7 @@ $teams = $query->fetchAll(PDO:: FETCH_ASSOC);
                     {
                         $teamname = $team ['TeamName'];
                         echo "<li> <a href='playeroverview.php?id={$team ['id']}'>$teamname</a></li>";
+
                     }
                     ?>
                 </ul>
