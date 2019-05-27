@@ -36,16 +36,50 @@ if ($_POST['type'] === 'addPlayer') {
     ]);
     header('location: addplayer.php?id=' . $id);
 }
-/*
-if ($_POST['type'] === 'addmatch')
-{
-    $matchup = $_POST['matchup'];
-    $sql = "INSERT INTO games (matchup)
-            VALUES(:matchup)";
-    $prepare = $db->prepare($sql);
-    $prepare->execute([
-        ':matchup'      => $matchup,
-    ]);
-} */
+
+if ($_POST['type'] == 'addmatch') {
+
+
+
+    $sqldelete = "DELETE FROM matchups";
+    $querydel = $db->query($sqldelete); //verzoek naar de database, voer sql van hierboven uit
+
+
+
+    $sql = "SELECT * FROM teams";
+    $query = $db->query($sql); //verzoek naar de database, voer sql van hierboven uit
+    $teams = $query->fetchAll(PDO::FETCH_ASSOC); //multie demensionale array //alles binnenhalen
+
+    $teamsArray = array();
+
+    foreach ($teams as $team) {
+        array_push($teamsArray, $team['teamName']);
+    }
+
+    $arrLength = count($teamsArray);
+
+
+    for ( $i = 0; $i < $arrLength; $i++)
+    {
+        for ($x = 0; $x < count($teamsArray); $x++ )
+        {
+            if($teamsArray[0] !== $teamsArray[$x])
+            {
+                $matchsql = "INSERT INTO matchups (home_team, away_team )
+                        values (:home_team , :away_team)";
+                $prepare = $db->prepare($matchsql);
+                $prepare->execute([
+                    ':home_team' => $teamsArray[0],
+                    ':away_team' => $teamsArray[$x]
+                ]);
+            }
+        }
+        array_shift($teamsArray);
+    }
+    //exit;
+    header("Location: gameSchedule.php");
+}
+
+
 ?>
 
