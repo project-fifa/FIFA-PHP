@@ -62,6 +62,7 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                             <input type="submit" id="addmatch" value="opslaan">
                         </form>
+                            <input type="button" value="eindstanden" onclick="location.href='results.php'">
                     <?php
                 }
                 else{
@@ -88,7 +89,7 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
                 }
 
 ?>
-
+            </ul>
         </div>
     </div>
 </div>

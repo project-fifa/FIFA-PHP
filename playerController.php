@@ -81,5 +81,19 @@ if ($_POST['type'] == 'addmatch') {
 }
 
 
+if ($_POST ['type'] == 'addscore')
+{
+    $sql = "UPDATE matchups SET 
+            home_team       = :home_team,
+            away_team       = :away_team";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':home_team'                => $_POST['home_team'],
+        ':away_team'          => $_POST['away_team'],
+    ]);
+    header("location: gameschedule.php");
+    exit;
+}
+
 ?>
 
