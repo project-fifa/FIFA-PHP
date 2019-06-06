@@ -1,7 +1,7 @@
 <?php
 require 'header.php';
 
-$sql = "SELECT teamName, id FROM teams";
+$sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $names = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -19,7 +19,9 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
 <div class="addteam-wrapper">
     <div class="team-display">
         <h2>Wedstrijd Schema </h2>
+        <h3> thuis - uit</h3>
         <div class="schedule-display">
+
             <ul>
                 <?php
                 $num_team = sizeof($names);
@@ -48,8 +50,10 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
                                 $results[$team2][$x] = $team1;
                                 $Team1 = $names[$results[$team1][$x] -1]['teamName'];
                                 $Team2 = $names[$results[$team2][$x] -1]['teamName'];
-                                echo "<input type='text' id='home_team' name='home_team' value='$Team1'> 
-                                        <input type='text' id='away_team' name='away_team' value='$Team2'> <br>";
+                                echo "<input type='text' id='home_team' name='home_team' value='$Team1' disabled>  -  
+                                        <input type='text' id='away_team' name='away_team' value='$Team2' disabled> <br>";
+
+
                             }
                             echo "<br>";
                             $tmp = $teams[1];
@@ -62,9 +66,26 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                             <input type="submit" id="addmatch" value="opslaan">
                         </form>
-                            <input type="button" value="eindstanden" onclick="location.href='results.php'">
+                    <h2>eindstanden invoeren</h2>
                     <?php
-                }
+
+                    foreach ($matches as $match){
+                        $teamfilter1 = htmlentities($match['home_team']);
+                        $teamfilter2 = htmlentities($match['away_team']);
+
+
+                        if ($admin == true){
+
+                            echo "<li><a href='results.php?id=".$match['id']."'>$teamfilter1 - $teamfilter2 ".$match['home_score']."-".$match['away_score']." " ." </a></li>";
+                        }
+
+                        else{
+
+                            echo "<li> $teamfilter1 - $teamfilter2 ".$match['home_score']."-".$match['away_score']." " ." </li>";
+                        }
+                    }
+                    }
+
                 else{
                     for ($x = 0; $x < $num_week; $x++) {
                         for ($i = 0; $i < $n2; $i++){

@@ -1,11 +1,12 @@
 <?php require 'header.php';
 
-$sql = "SELECT home_team, away_team FROM matchups";
-$query = $db->query($sql);
-$matches = $query->fetchAll(PDO:: FETCH_ASSOC);
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-if($_SESSION == false) {
-    header('location: login.php');
+
+    $sql = "SELECT * FROM matchups WHERE id = $id";
+    $query = $db->query($sql);
+    $match = $query->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
 
@@ -14,21 +15,17 @@ if($_SESSION == false) {
             <h2>eindstanden invullen </h2>
             <div class="schedule-display">
                 <ul>
-                    <form action="playerController.php" method="post">
+                    <form action="playerController.php?id=<?=$id?>" method="post">
                         <input type="hidden" name="type" value="addscore">
-                    <?php
-                    foreach ($matches as $match)
-                    {
-                        $awayteam = $match ["away_team"];
-                        $hometeam = $match ["home_team"];
-                        echo "<p>$hometeam vs $awayteam</p> <br>";
 
-                        echo "<input type='text' id='home_score' name='home_score'> 
-                                        <input type='text' id='away_score' name='away_score'> <br>";
-                    }
 
-                    ?>
-                        <input type="submit" id="addscore" value="invoeren">
+                            <h4>thuis team</h4>
+                            <input type="number" name="home_score" id="home_score">
+
+                            <h4>uit team</h4>
+                            <input type="number" name="away_score" id="away_score">
+
+                            <input type="submit"  id="addscore" value="Verzenden">
                     </form>
                 </ul>
             </div>
