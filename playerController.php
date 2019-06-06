@@ -65,12 +65,12 @@ if ($_POST['type'] == 'addmatch') {
         {
             if($teamsArray[0] !== $teamsArray[$x])
             {
-                $matchsql = "INSERT INTO matchups (home_team, away_team )
-                        values (:home_team , :away_team)";
+                $matchsql = "INSERT INTO matchups (home_team, away_team, home_score, away_score)
+                        VALUES (:home_team , :away_team, :home_score, :away_score)";
                 $prepare = $db->prepare($matchsql);
                 $prepare->execute([
-                    ':home_team' => $teamsArray[0],
-                    ':away_team' => $teamsArray[$x]
+                    ':home_team'    => $teamsArray[0],
+                    ':away_team'    => $teamsArray[$x],
                 ]);
             }
         }
@@ -81,19 +81,42 @@ if ($_POST['type'] == 'addmatch') {
 }
 
 
-if ($_POST ['type'] == 'addscore')
-{
-    $sql = "UPDATE matchups SET 
-            home_team       = :home_team,
-            away_team       = :away_team";
+if ( $_POST['type'] === 'addscore' ) {
+
+
+    if ($admin == true) {
+        header('Location: index.php?error=nopermission');
+    }
+
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    } else {
+        header('Location: gameSchedule.php');
+    }
+
+
+    $homescore = $_POST['home_score'];
+    $awayscore = $_POST['away_score'];
+
+    $score = $homescore . "-" . $awayscore;
+
+
+    $sql = "UPDATE matchups SET home_score = :result WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':home_team'                => $_POST['home_team'],
-        ':away_team'          => $_POST['away_team'],
+        ':result' => $homescore,
+        ':id' => $id
     ]);
-    header("location: gameschedule.php");
-    exit;
-}
 
+
+    $sql = "UPDATE matchups SET away_score = :result WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':result' => $awayscore,
+        ':id' => $id
+    ]);
+    header('Location: gameSchedule.php?success=result');
+}
 ?>
 
