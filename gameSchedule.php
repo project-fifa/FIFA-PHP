@@ -5,7 +5,7 @@ $sql = "SELECT teamName, id FROM teams";
 $query = $db->query($sql);
 $names = $query->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = "SELECT * FROM matchups"; //gewoon een opslag van een string die je later gaat gebruiken
+$sql = "SELECT * FROM matchups";
 $query = $db->query($sql); //verzoek naar de database, voer sql van hierboven uit
 $matches = $query->fetchAll(PDO::FETCH_ASSOC); //multie demensionale array //alles binnenhalen
 
