@@ -48,6 +48,14 @@ $teams = $query->fetchAll(PDO:: FETCH_ASSOC);
             </ul>
         </div>
     </div>
+    <div class="overview-display">
+        <h2>Punten</h2>
+        <div class="teams-overview-display">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
 </div>
 
 

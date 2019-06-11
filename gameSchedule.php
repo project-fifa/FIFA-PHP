@@ -17,6 +17,7 @@ $admin = $admincheck->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="addteam-wrapper">
+    <button><a href="index.php"><i class="fas fa-home"></i></a></button>
     <div class="team-display">
         <h2>Wedstrijd Schema </h2>
         <h3> thuis - uit</h3>

@@ -170,4 +170,33 @@ if ($_POST['type'] === 'delete') {
     ]);
     header('location: detail.php');
 }
-exit;
+
+if ($_POST['type'] === 'key') {
+    if (isset($_SESSION['isAdmin'])) {
+    } else {
+        header('Location: index.php?error=nopermission');
+        exit();
+    }
+    $random = md5(rand($min = 999999999, $max = 99999999));
+    echo $random;
+    $sql = "INSERT INTO tokens(token) VALUES('$random')";
+    $query = $db->query($sql);
+    header('location: keys.php?create=success');
+}
+if ($_POST['type'] === 'deletekey'){
+    if(isset($_SESSION['isAdmin'])){
+    }
+    else{
+        header('Location: index.php?error=nopermission');
+        exit();
+    }
+    $id = trim($_GET['id']);
+    $sql = "DELETE from tokens WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id
+    ]);
+    echo 'test2';
+    header('location: keys.php?delete=success');
+    exit;
+}

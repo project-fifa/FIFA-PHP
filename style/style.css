@@ -413,6 +413,29 @@ body {  }
 	align-items: center;
 }
 
+.addteam-wrapper button
+{
+	border-radius: 0px;
+	background: #545454;
+	border: 5px solid #696969;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+	color: #B9B9B9;
+	padding: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.addteam-wrapper i
+{
+	font-size: 2.7em;
+}
+
+.addteam-wrapper a
+{
+	color: inherit;
+}
+
 .addteam-div
 {
 	display: grid;
@@ -476,7 +499,7 @@ body {  }
 	font-size: 1.5em;
 	width: 100px;
 	height: 30px;
-	color: rgba(255, 255, 255, 0.6);
+	color: white;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -484,6 +507,8 @@ body {  }
 	align-self: flex-end;
 	margin-top: 10px;
 }
+
+
 .team-name
 {
 	grid-area: 1/1/2/2;

@@ -65,8 +65,8 @@ if ($_POST['type'] == 'addmatch') {
         {
             if($teamsArray[0] !== $teamsArray[$x])
             {
-                $matchsql = "INSERT INTO matchups (home_team, away_team, home_score, away_score)
-                        VALUES (:home_team , :away_team, :home_score, :away_score)";
+                $matchsql = "INSERT INTO matchups (home_team, away_team)
+                        VALUES (:home_team, :away_team)";
                 $prepare = $db->prepare($matchsql);
                 $prepare->execute([
                     ':home_team'    => $teamsArray[0],
@@ -116,7 +116,7 @@ if ( $_POST['type'] === 'addscore' ) {
         ':result' => $awayscore,
         ':id' => $id
     ]);
-    header('Location: gameSchedule.php?success=result');
+    header('Location: gameSchedule.php?success=$result');
 }
 ?>
 
